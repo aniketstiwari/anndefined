@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
+ -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+  
+.modal-body {
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+.modal-dialog {
+      width: 800px; /* New width for default modal */
+        }
+  </style>
+  
+  </head>
+  <body>
+
+
+
+    <div class="container-fluid height-full" style="background-color:white;border-top-color:black;border-style:solid;border-right-color:black;border-left-color:black;border-width:1px;border-bottom:none; margin-top:-21px;">
+   <div class="row col-lg-offset-1">
+   <br>
+   <br>
+  
+<div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p1')" onmouseout="LaunchModelMosueOut('p1')" id="product1">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p1" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+   <div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p2')" onmouseout="LaunchModelMosueOut('p2')" id="product2">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p2" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+   
+     <div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p3')" onmouseout="LaunchModelMosueOut('p3')" id="product3">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p3" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+
+
+
+
+
+
+  </div>
+
+   <div class="row col-lg-offset-1">
+<div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p4')" onmouseout="LaunchModelMosueOut('p4')" id="product4">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p4" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+   <div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p5')" onmouseout="LaunchModelMosueOut('p5')" id="product5">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p5" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+   
+     <div class="col-lg-4 col-md-4" onmouseover="LaunchModelMosueOver('p6')" onmouseout="LaunchModelMosueOut('p6')" id="product6">
+ <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
+ <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p6" data-toggle="modal">Launch demo modal</a>
+  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
+   </div>
+</div>
+/div>
+  
+<%=render 'popup'%>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <!-- <script src="js/bootstrap.min.js"></script> -->
+  <script>
+  $(document).ready(function(){
+    $("#p1").hide();
+    $("#p2").hide();
+    $("#p3").hide();
+    $("#p4").hide();
+    $("#p5").hide();
+    $("#p6").hide();
+    });
+    function LaunchModelMosueOver(id)
+    {
+    var mid='#'+id
+    $(mid).show();
+    }
+
+    function LaunchModelMosueOut(id)
+    {
+    var mid='#'+id
+    $(mid).show();
+    $(mid).hide();
+    }
+  </script>
+  </body>
+</html>

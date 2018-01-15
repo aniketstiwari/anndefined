@@ -1,0 +1,134 @@
+<!--<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+-->
+
+<div class="container">
+  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name),id: " fileForm") do |f| %>
+            <%= devise_error_messages! %>
+            <fieldset><legend class="text-center">Sign up. <span class="req"></span></legend>
+
+            <div class="form-group">   
+                <label for="firstname"><span class="req">* </span> First name: </label>
+                    <%= f.text_field :first_name, autofocus: true,class: 'form-control',onkeyup: 'Validate(this)',:required => true %>
+                     <div id="errFirst"></div>    
+            </div>
+
+            <div class="form-group">
+                <label for="lastname"><span class="req">* </span> Last name: </label> 
+                    <%= f.text_field :last_name, autofocus: true,class: 'form-control',onkeyup: 'Validate(this)',:required => true %>
+                     
+                        <div id="errLast"></div>
+            </div>
+
+            <div class="form-group">
+            <label for="phonenumber"><span class="req">* </span> Phone Number: </label>
+                    <%= f.text_field :mobile_number, autofocus: true,class: 'form-control phone',onkeyup: "if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')",:required => true %>
+            </div>
+
+
+            <div class="form-group">
+                <label for="email"><span class="req">* </span> Email Address: </label> 
+                <%= f.email_field :email, autofocus: true,class: 'form-control phone',onkeyup: 'email_validate(this)',min: "10", max: "10",:required => true %>
+                        <div class="status" id="status"></div>
+            </div>
+
+           <!--  <div class="form-group">
+                <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label> 
+                    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
+                        <div id="errLast"></div>
+            </div> -->
+
+            <div class="form-group">
+                <label for="password"><span class="req">* </span> Password: </label>
+                    <%= f.password_field :password,class: 'form-control inputpass',min: "8",:required => true,autocomplete: "off" %>
+                <label for="password"><span class="req">* </span> Password Confirmation: </label>
+                    <%= f.password_field :password_confirmation,class: 'form-control inputpass',min: "8",:required => true,autocomplete: "off",onkeyup: 'checkPass()' %>
+                        <span id="confirmMessage" class="confirmMessage"></span>
+            </div>
+
+            <div class="form-group">
+            
+                
+                <hr>
+
+                <input type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="terms.php" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" name="submit_reg" value="Register">
+                <%=link_to "Login", new_user_session_path, class: "btn btn-success"%>
+               
+            </div>
+                      <h5>You will receive an email to complete the registration and validation process. </h5>
+                      <h5>Be sure to check your spam folders. </h5>
+ 
+
+            </fieldset>
+            <%end%><!-- ends register form -->
+
+<script type="text/javascript">
+  document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+  $('input[name="user[mobile_number]"]').keyup(function(e){
+  if (/\D/g.test(this.value))
+  {
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
+</script>
+        </div><!-- ends col-6 -->
+   
+  </div>
+</div>
+
+<style>
+fieldset {
+    border: thin solid #ccc; 
+    border-radius: 4px;
+    padding: 20px;
+    padding-left: 40px;
+    background: #fbfbfb;
+}
+legend {
+   color: #678;
+}
+.form-control {
+    width: 95%;
+}
+label small {
+    color: #678 !important;
+}
+span.req {
+    color:maroon;
+    font-size: 112%;
+}
+</style>
