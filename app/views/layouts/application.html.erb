@@ -11,40 +11,11 @@
   	<%unless params[:action] == "index"%>
   	  <%=render 'layouts/header'%>
       
-<div class="bs-example">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>   
-        <!-- Wrapper for carousel items -->
-        <div class="carousel-inner">
-            <div class="item active">
-              <img src="/assets/slider.jpg" alt="First Slide" style="height:400px; width:900px;">
-            </div>
-            <div class="item">
-              <img src="/assets/P2.jpg" alt="Second Slide" style="height:400px; width:900px;">
-            </div>
-            <div class="item">
-              <img src="/assets/slider.jpg" alt="Third Slide" style="height:400px; width:900px;">
-            </div>
-        </div>
-        <!-- Carousel controls -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            
-        </a>
-        <center><a class="btn btn-success" href="/homes/about_us">Go to main site</a></center>
-    </div>
-</div>
+
     <%end%>  
     <%= render 'layouts/messages' %>
     <%= yield %>
+    <%=render 'layouts/footer'%>
   </body>
 </html>
 

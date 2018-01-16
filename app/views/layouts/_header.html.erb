@@ -13,47 +13,30 @@
 					  </a>
 					  <li class="dropdown"><a href="/homes/restro" style="color:black; size:20">Testimonials
 					  </a>
-						  <!--<ul class="dropdown-menu" style="background-color:rgb(6,3,13);"> 
-							  <li><a href="/homes/restro" style="color:white;">Glutan free</a></li>   
-                <li><a href="/homes/flour"style="color:white;">Floors</a></li><li><a href="#"style="color:white;">Cookies</a>
-							  <li><a href="#"style="color:white;">Rosted/Baked Snacks</a></li> 
-							  <li><a href="#"style="color:white;">Cereals</a></li>
-							  <li><a href="#"style="color:white;">Energy Bars</a></li> 
-							  <li><a href="#"style="color:white;">Gur Honey Coated</a></li> 
-							  <li><a href="#"style="color:white;">Sugar free</a></li> 
-							  <li><a href="#"style="color:white;">Leen</a></li>       
-							  <li><a href="#"style="color:white;">Seeds</a></li>       
-						  </ul>-->
-					  </li> 
-				    <!-- <li class="dropdown"><a  href="/homes/receipies" style="color:black; size:20">Recipies </a></li>
-					  <li class="dropdown"><a href="/homes/facts" style="color:black; size:20">Facts</a></li>
-					  <li class="dropdown"><a href="/homes/historic_value" style="color:black; size:20">Historaic values</a></li>
-					  <li class="dropdown"><a href="/homes/contact_us" style="color:black; size:20">Contacts</a></li> -->	 	 
+					  </li> 	    
 				  </ul>
-
 				</div>
 				<br>
 				<%unless params["controller"].include?("devise")%>
-				<div class="col-lg-1 col-lg-offset-1">
-				<% if user_signed_in? %>
+					<div class="col-lg-1 col-lg-offset-1">
+					<% if user_signed_in? %>
+					  <p></p>
+					  <%= link_to( destroy_user_session_path, method: :delete)  do %>
+						  <span class="glyphicon glyphicon-log-out" style="color:black;"></span>
+					  <% end %>
+				  <% else %>
 				    <p></p>
-				    <%= link_to( destroy_user_session_path, method: :delete)  do %>
-					  <span class="glyphicon glyphicon-log-out" style="color:black;"></span>
-					<% end %>
-			    <% else %>
-			       <p></p>
-				  <%= link_to( new_user_registration_path)  do %>
-					  <span class="glyphicon glyphicon-user" style="color:black;"></span>
-					<% end %>  
-				<% end %>
+				    <%= link_to( new_user_registration_path)  do %>
+					    <span class="glyphicon glyphicon-user" style="color:black;"></span>
+					  <% end %>  
+				  <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="#">
 					  <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
 					</a>
-			  </div>
-      <%end%>
-			</div>
-			
+			    </div>
+        <%end%>
+			</div>		
 		</div>
 	</div>
 </div>
