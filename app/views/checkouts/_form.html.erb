@@ -1,0 +1,78 @@
+ <%= form_for @address, :url => url_for(:controller => 'checkouts', :action => 'billing'), html: { multipart: false } do |f| %>
+    <div class="form-content clearfix">
+      <div class="row col-md-12 generic_ship_bill_class">
+        <%= f.text_field :name, { :class => 'form-control', :placeholder => "Name" } %>
+      
+        <%= f.hidden_field :product_id, value: @product.try(:id) %>
+        <% if address.errors[:name].any? %>
+          <% address.errors[:name].each do |message| %>
+            <span class="input-error">Name <%= message %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row col-md-12 generic_ship_bill_class">
+        <%= f.text_field :address, { :class => 'form-control', :placeholder => "Address" } %>
+        <% if address.errors[:address].any? %>
+          <% address.errors[:address].each do |message| %>
+            <span class="input-error">Address <%= message %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row  generic_ship_bill_class">
+        <div class="col-md-6">
+          <%= f.text_field :city, { :class => 'city', :placeholder => "City" } %>
+          <% if address.errors[:city].any? %>
+            <% address.errors[:city].each do |message| %>
+              <span class="input-error">City <%= message %></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class=" col-md-6">
+          <%= f.text_field :state, { :class => 'state', :placeholder => "State" } %>
+          <% if address.errors[:state].any? %>
+            <% address.errors[:state].each do |message| %>
+              <span class="input-error">State <%= message %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%# f.text_field :country, { :class => 'country', :placeholder => "Country" } %>
+      <%# f.select(:country, countries.sort.map { |value| [ value, value ] }, {class: "form-control"} ) %>
+      <div class="row  generic_ship_bill_class">
+        <div class="col-md-6">
+          <%= f.select :country, :selected => 'United States' %>
+          <% if address.errors[:country].any? %>
+            <% address.errors[:country].each do |message| %>
+              <span class="input-error">Country <%= message %></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class=" col-md-6">
+          <%= f.text_field :zip, { :class => 'zip', :placeholder => "Zip" } %>
+          <% if address.errors[:zip].any? %>
+            <% address.errors[:zip].each do |message| %>
+              <span class="input-error">ZIP <%= message %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row col-md-12 generic_ship_bill_class">
+        <%= f.number_field :phone, { :class => 'phone', :placeholder => "Phone" } %>
+        <% if address.errors[:phone].any? %>
+          <% address.errors[:phone].each do |message| %>
+            <span class="input-error">Phone <%= message %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row col-md-12">
+        <% if is_shipping %>
+          <%= label_tag 'same_as_billing', class: "hi" do %>
+            <%= check_box_tag 'same_as_billing', '1', false, :class => "mycheckbox sign"  %>
+            Check here if billing address is the same as shipping.
+          <% end %>
+        <% end %>
+      </div>
+      <%= f.submit "Save", :class => 'btn btn-ae btn-da pull-right' %>
+    </div>
+ 
+<% end %>

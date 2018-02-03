@@ -32,56 +32,25 @@
 
 
 
-    <div class="container-fluid height-full" style="background-color:white;border-top-color:black;border-style:solid;border-right-color:black;border-left-color:black;border-width:1px;border-bottom:none;">
+  <div class="container-fluid height-full" style="background-color:white;border-top-color:black;border-style:solid;border-right-color:black;border-left-color:black;border-width:1px;border-bottom:none;">
    <div class="row col-lg-offset-2">
    <br>
    <br>
-  
-<div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p1')" onmouseout="LaunchModelMosueOut('p1')" id="product1">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p1" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
-   <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p2')" onmouseout="LaunchModelMosueOut('p2')" id="product2">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p2" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
+  <%@products.each.with_index(1) do |product, index|%>
+    <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p<%=index%>')" onmouseout="LaunchModelMosueOut('p<%=index%>')" id="product1">
+      
+      <%=image_tag product.images.last.name, class: "img-responsive"%>
+      <!--<a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p<%=index%>" data-toggle="modal">Launch demo modal</a>-->
    
-     <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p3')" onmouseout="LaunchModelMosueOut('p3')" id="product3">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p3" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
-
-
-
-
-
-
-  </div>
-
-   <div class="row col-lg-offset-2">
-<div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p4')" onmouseout="LaunchModelMosueOut('p4')" id="product4">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p4" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
-   <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p5')" onmouseout="LaunchModelMosueOut('p5')" id="product5">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p5" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
-   
-     <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p6')" onmouseout="LaunchModelMosueOut('p6')" id="product6">
- <img src="/assets/Barley_Atta_1024x1024.jpg" class="img-responsive" alt="Cinque Terre">
- <a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p6" data-toggle="modal">Launch demo modal</a>
-  <h4>Barley Atta Mix <span class="label label-default">RS 130.00</span></h4>
-   </div>
+      <%=render 'popup', product: product%>
+      <%= link_to "Launch demo modal", '#', data: { toggle: "modal", target: "#itemDescription_#{product.id}" }, class: "btn btn-primary btn-lg", id: "p#{index}",  style: "height:100%;width:100%" %>
+      <h4><%=product.name%> <span class="label label-default"><%=product.price%></span></h4>
+    </div>
+  <%end%>
 </div>
-</div>
+ <%#=render 'popup'%>
+
   
-<%=render 'popup'%>
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -95,6 +64,9 @@
     $("#p4").hide();
     $("#p5").hide();
     $("#p6").hide();
+    $("#p7").hide();
+    $("#p8").hide();
+    $("#p9").hide();
     });
     function LaunchModelMosueOver(id)
     {

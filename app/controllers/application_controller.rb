@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_order
+  before_action :store_location
 
   def current_order
     if !session[:order_id].nil?
@@ -28,9 +29,23 @@ class ApplicationController < ActionController::Base
     end
 	end
 
-	def after_sign_in_path_for(resource_or_scope)
- 	   homepage_homes_path
+	def after_sign_in_path_for(resource_or_scope) 
+    previous_path = session[:previous_url]
+    session[:previous_url] = nil
+    previous_path || homepage_homes_path
 	end
+
+  def store_location
+    if(request.path != "/users/sign_in" &&
+       request.path != "/users/sign_up" &&
+       request.path != "/users/password/new" &&
+       request.path != "/users/password/edit" &&
+       request.path != "/users/confirmation" &&
+       request.path != "/users/sign_out" &&
+       !request.xhr? && !current_user) # don't store ajax calls
+      session[:previous_url] = request.fullpath
+    end
+  end
 
 
 end

@@ -1,0 +1,24 @@
+<section class="cart-page-wrapper checkout-shipping">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+        <div class="cart-heading">
+          <h1>Checkout / Shipping Address</h1>
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+        <div class="cart-left-con">
+          <div class="shipping-form">
+            <%= render 'form', address: @address, action: @action, is_shipping: true %>
+          </div>
+        </div>
+        <!-- cart-left-con -->
+        <%#= render 'shared/order_summary' %>
+        <!-- cart-right-con -->
+      </div>
+    </div>
+  </div>
+  <!-- container  -->
+</section>
+<!-- cart-page-wrapper -->
+<%# render 'shared/recently_viewed' %>

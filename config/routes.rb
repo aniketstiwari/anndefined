@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
 
-  get 'order_items/update'
-
-  get 'order_items/destroy'
-
-  get 'carts/show'
-
-  get 'products/index'
+  
 
   devise_for :users
   root 'homes#index'
@@ -26,12 +19,20 @@ Rails.application.routes.draw do
      # get 'facts'
      # get 'historic_value'
       get 'see_more_details'
+      get 'product_popup'
     end
   end
 
   resources :products, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :checkouts, only: [:shipping, :billing] do
+    collection do
+      get :shipping
+      get :billing
+    end
+  end
+
   #root to: "products#index"
 end
 

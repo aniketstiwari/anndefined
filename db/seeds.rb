@@ -8,12 +8,28 @@
 
 
 
-Product.create! id: 1, name: "Banana", price: 0.49, active: true
-Product.create! id: 2, name: "Apple", price: 0.29, active: true
-Product.create! id: 3, name: "Carton of Strawberries", price: 1.99, active: true
+p = Product.create! name: "Aata", price: 10, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p = Product.create!  name: "Suji", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Pakodi", price: 3, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-1", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-2", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-3", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-4", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-5", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
+p =Product.create!  name: "Suji-6", price: 20, active: true
+p.images.create(name:File.open(File.join(Rails.root,'app/assets/images/Barley_Atta_1024x1024.jpg')))
 
 
-OrderStatus.create! id: 1, name: "In Progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"
+
+OrderStatus.create!  name: "Placed"
+OrderStatus.create!  name: "Shipped"
+OrderStatus.create!  name: "Cancelled"
+OrderStatus.create!  name: "In Progress"

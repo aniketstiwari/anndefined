@@ -31,7 +31,10 @@
 					  <% end %>  
 				  <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#">
+					<a href="/cart">
+					  <% if(current_order.order_items.size > 0) %>
+              <span class="cart-count"><%= current_order.order_items.size %></span>
+            <% end %>
 					  <span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span>
 					</a>
 			    </div>
