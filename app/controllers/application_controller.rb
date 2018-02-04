@@ -30,9 +30,13 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_in_path_for(resource_or_scope) 
-    previous_path = session[:previous_url]
-    session[:previous_url] = nil
-    previous_path || homepage_homes_path
+    if resource_or_scope.class.name == "AdminUser"
+      admin_dashboard_path
+    else
+      previous_path = session[:previous_url]
+      session[:previous_url] = nil
+      previous_path || homepage_homes_path
+    end
 	end
 
   def store_location

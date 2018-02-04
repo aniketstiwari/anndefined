@@ -16,6 +16,7 @@ gem 'rails_12factor'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'activeadmin'
 # gem 'bootstrap2-rails'
 # gem 'bootstrap-sass', '3.2.0.2'
 # Use Uglifier as compressor for JavaScript assets

@@ -33,3 +33,4 @@ OrderStatus.create!  name: "Placed"
 OrderStatus.create!  name: "Shipped"
 OrderStatus.create!  name: "Cancelled"
 OrderStatus.create!  name: "In Progress"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
