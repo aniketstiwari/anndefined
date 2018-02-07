@@ -43,7 +43,7 @@
           <%=image_tag product.images.last.name, class: "img-responsive" %>
           <!--<a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p<%=index%>" data-toggle="modal">Launch demo modal</a>-->
           <%=render 'popup', product: product%>
-          <%= link_to "Launch demo modal", '#', data: { toggle: "modal", target: "#itemDescription_#{product.id}" }, class: "btn btn-primary btn-lg", id: "p#{index}",  style: "height:100%;width:100%" %>
+          <%= link_to "Quick Shop", '#', data: { toggle: "modal", target: "#itemDescription_#{product.id}" }, class: "btn btn-primary btn-lg", id: "p#{index}",  style: "height:100%;width:100%" %>
           <h4><%=product.name%> <span class="label label-default"><%=product.price%></span></h4>
         </div>
         <%if index  % 3 == 0%>
