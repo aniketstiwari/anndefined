@@ -8,17 +8,17 @@ Rails.application.routes.draw do
   resources :homes do
     collection do
       get 'homepage'
-      get 'about_us'
+      #get 'about_us'
       get 'faq'
       get 'terms_and_conditions'
       get 'restro'
     #  get 'flour'
       get 'contact_us'
-     # get 'concept'
+      get 'concept'
      # get 'receipies'
-     # get 'facts'
-     # get 'historic_value'
-      get 'see_more_details'
+      get 'facts'
+      get 'historic_value'
+     # get 'see_more_details'
       get 'product_popup'
     end
   end

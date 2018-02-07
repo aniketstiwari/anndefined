@@ -28,11 +28,13 @@ background-color:white;
   <body>
    
 
-      <%=render 'layouts/home_page_slider'%>
-<img src="/assets/latest.jpg" class="img-responsive" style="height:500px;width:1290px;" >
+  <%=render 'layouts/home_page_slider'%>
 
-<a class="btn btn-success image_button" href="/homes/about_us">Go to main site</a>
-
+    <img src="/assets/latest.jpg" class="img-responsive" style="height:500px;width:1290px;" >
+  
+  <center>
+<a class="btn btn-success image_button" href="/homes/about_us">Testimonials</a>
+</center>
 
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -40,19 +42,28 @@ background-color:white;
     <!-- Include all compiled plugins (below), or include individual files as needed -->
    <!--  // <script src="js/bootstrap.min.js"></script> -->
 	<script>
-	$(document).ready(function(){
-	$("#p1").hide();
-	$('.dropdown-toggle').dropdown() 
+  //$(document).ready(function() {
+    // $("#testimonial").click(function(e) {
+    //     alert('sdsd')
+    //     e.preventDefault();
+    //     $('#testimonial_image').scrollView();
+    // });
+//});
 	
-    $("#product").mouseover(function(){
-	$("#p1").show();
+
+//   $(document).ready(function(){
+// 	$("#p1").hide();
+// 	$('.dropdown-toggle').dropdown() 
+	
+//     $("#product").mouseover(function(){
+// 	$("#p1").show();
         
-    });
-    $("#product").mouseout(function(){
+//     });
+//     $("#product").mouseout(function(){
         
-		$("#p1").hide();
-    });
-});
+// 		$("#p1").hide();
+//     });
+// });
 	</script>
   </body>
 </html>

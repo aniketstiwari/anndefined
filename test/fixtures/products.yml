@@ -2,12 +2,14 @@
 #
 # Table name: products
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  price      :decimal(12, 3)
-#  active     :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                   :integer          not null, primary key
+#  name                 :string
+#  price                :decimal(12, 3)
+#  active               :boolean
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  max_allowed_quantity :integer
+#  description          :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
