@@ -1,9 +1,14 @@
 class OrderItemsController < ApplicationController
+  
   def create
     @order = current_order
-    @order_item = @order.order_items.new(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
+    if OrderItem.find_by(order_id: @order, product_id: params[:order_item][:product_id]).present?
+      flash[:error] = "It's alreay in cart."
+    else
+      @order_item = @order.order_items.new(order_item_params)
+      @order.save
+      session[:order_id] = @order.id
+    end  
     redirect_to  cart_path
   end
 
@@ -20,8 +25,12 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
     @order_items = @order.order_items
   end
+
 private
   def order_item_params
     params.require(:order_item).permit(:quantity, :product_id)
   end
 end
+
+
+
