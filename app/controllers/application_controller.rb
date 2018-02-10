@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
        request.path != "/users/confirmation" &&
        request.path != "/users/sign_out" &&
        !request.xhr? && !current_user) # don't store ajax calls
-      session[:previous_url] = request.fullpath
+        session[:previous_url] = request.fullpath if request.path == "/cart" 
     end
   end
 
