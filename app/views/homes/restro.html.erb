@@ -36,6 +36,7 @@
 
       <br><br>
       <%@products.each.with_index(1) do |product, index|%>
+      <%next unless product.images.present?%>
       <%if (index-1)  % 3== 0%>
         <div class="row col-lg-offset-2">
       <%end%>    
