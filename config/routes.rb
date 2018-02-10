@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'historic_value'
      # get 'see_more_details'
       get 'product_popup'
+      get 'testimonial'
     end
   end
 
