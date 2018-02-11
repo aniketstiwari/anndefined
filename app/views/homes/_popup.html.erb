@@ -9,11 +9,11 @@
         <div class="row">
           <div class="col-md-1" id="product_<%=product.id%>">
             <%product.images.each do |i|%>
-    	        <br>
     	          <%=image_tag i.name.thumb.url, class: "img", id: "#{i.id}", class: "thumb_image_#{i.id}" %>
+    	        <br><br>
     	      <%end%>
           </div>
-          <div class="col-md-4" id="abc_<%=product.id%>">
+          <div class="col-md-6" id="abc_<%=product.id%>">
             <%product.images.each.with_index do |i, index|%>
              
               <%#if index == 0%>	  
