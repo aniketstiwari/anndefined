@@ -41,7 +41,12 @@ padding: 25px;
   background-size: cover;
 }
 .large-background {
-    background: url('/assets/new_desktop.jpg') no-repeat;
+
+   background: url('/assets/new_desktop.jpg') no-repeat;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 </style> 
      
@@ -67,7 +72,7 @@ var myVar;
 
 function myFunction() {
     myVar = setTimeout(showPage, 3000);
-  $("#div3").fadeIn(3000);
+ 
 }
 
 function showPage() {
