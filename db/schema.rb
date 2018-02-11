@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(version: 20180204184602) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "headers", force: :cascade do |t|
-    t.string   "title"
-    t.boolean  "status",     default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
   create_table "images", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_id"
@@ -104,12 +97,6 @@ ActiveRecord::Schema.define(version: 20180204184602) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
-  end
-
-  create_table "product_images", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
