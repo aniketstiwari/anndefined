@@ -41,7 +41,7 @@
         <div class="row col-lg-offset-2">
       <%end%>    
         <div class="col-lg-3 col-md-3" onmouseover="LaunchModelMosueOver('p<%=index%>')" onmouseout="LaunchModelMosueOut('p<%=index%>')" id="product1">
-          <%=image_tag product.images.last.name, class: "img-responsive" %>
+          <%=image_tag product.images.first.name, class: "img-responsive" %>
           <!--<a href="#itemDescription" class="btn btn-primary btn-lg" type="button" style="height:100%;width:100%" id="p<%=index%>" data-toggle="modal">Launch demo modal</a>-->
           <%=render 'popup', product: product%>
           <%= link_to "Quick Shop", '#', data: { toggle: "modal", target: "#itemDescription_#{product.id}" }, class: "btn btn-primary btn-lg", id: "p#{index}",  style: "height:100%;width:100%" %>
@@ -62,16 +62,10 @@
      <!-- <script src="js/bootstrap.min.js"></script> -->
   <script>
   $(document).ready(function(){
-    $("#p1").hide();
-    $("#p2").hide();
-    $("#p3").hide();
-    $("#p4").hide();
-    $("#p5").hide();
-    $("#p6").hide();
-    $("#p7").hide();
-    $("#p8").hide();
-    $("#p9").hide();
-    });
+    <%@products.each.with_index(1) do |product, index|%>
+      $("#p<%=index%>").hide();
+    <%end%>
+  });
     function LaunchModelMosueOver(id)
     {
     var mid='#'+id
@@ -84,6 +78,9 @@
     $(mid).show();
     $(mid).hide();
     }
+
+           
   </script>
   </body>
 </html>
+

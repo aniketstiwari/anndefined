@@ -1,34 +1,62 @@
- <div class="modal fade" tabindex="-1" id="itemDescription_<%=product.id%>" data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="itemDescription_<%=product.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-            &times;
-        </button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal</h4>
       </div>
-      <div class="modal-body" style="overflow-y:auto;">
+      <div class="modal-body">
         <div class="row">
-		    <div class="col-lg-6">
-
-		      <img src="<%=  product.images.first.name_url %>" class="img-responsive" alt="Cinque Terre">
-		    </div>
-		    <div class="col-lg-6">
-		      <h1 style="color:#f7931d;"><%= product.name %></h1>
-		      <!-- <h5>92 in stock</h5> -->
-		      <%=form_for OrderItem.new do |f|%>
-			      <label for="inputsm">RS <%=product.price%></label>
-			      <hr>
-			      <%= f.hidden_field :product_id, value: product.id %>
-			      Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" style="width:60px;" pattern="[0-9]*" name="order_item[quantity]" class="quantity-input" min="1" value="1" required="required"></span>
-						<br>
-						<br>
-						<%=f.submit "Add To Cart", class: "btn btn-warning btn-large;", style: "height:100%;width:100%"%>
-            <br><br>
-		      <%end%>
-				<%= product.description.html_safe %>
-			</div>
-		  </div>
+          <div class="col-md-1" id="product_<%=product.id%>">
+            <%product.images.each do |i|%>
+    	        <br>
+    	          <%=image_tag i.name.thumb.url, class: "img", id: "#{i.id}", class: "thumb_image_#{i.id}" %>
+    	      <%end%>
+          </div>
+          <div class="col-md-4" id="abc_<%=product.id%>">
+            <%product.images.each.with_index do |i, index|%>
+             
+              <%#if index == 0%>	  
+    	          <%=image_tag i.name.url, id: "full_product_#{i.id}", class: "img-responsive", alt: "Cinque Terre" %>
+    	        <%#end%>  
+    	      <%end%>
+          </div>
+          <div class="col-md-5">
+            <h1 style="color:#f7931d;"><%= product.name %></h1>
+			      <!-- <h5>92 in stock</h5> -->
+			      <%=form_for OrderItem.new do |f|%>
+				      <label for="inputsm">RS <%=product.price%></label>
+				      <hr>
+				      <%= f.hidden_field :product_id, value: product.id %>
+				      Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" style="width:60px;" pattern="[0-9]*" name="order_item[quantity]" class="quantity-input" min="1" value="1" required="required"></span>
+							<br>
+							<br>
+							<%=f.submit "Add To Cart", class: "btn btn-warning btn-large;", style: "height:100%;width:100%"%>
+	            <br><br>
+			      <%end%>
+					  <%= product.description.html_safe %>
+          </div>
+        </div>
       </div>
     </div>
-	</div>
+  </div>
 </div>
+
+<style>
+	.hidden{
+	  display: none;
+	}
+</style>
+
+<script>
+  $(document).ready(function() {
+    $('#product_<%=product.id%> img').each(function() {
+      var id = $(this).attr('id');
+      $('#abc_<%=product.id%> img').first().siblings().addClass('hidden');
+      $('.thumb_image_'+id).mouseover(function() {
+        $('#full_product_'+id).removeClass('hidden');
+        $('#full_product_'+id).siblings().addClass('hidden');
+      });        
+    });
+  });  
+</script>
