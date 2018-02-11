@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :name, :price, :active, :max_allowed_quantity, :description,  images_attributes: [:name]
+	permit_params :name, :price, :active, :max_allowed_quantity, :description,  images_attributes: [:id, :name, :value, :_destroy => true]
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -19,7 +19,12 @@ ActiveAdmin.register Product do
       f.input :max_allowed_quantity
       f.input :description
       f.has_many :images do |ff|
-        ff.input :name
+        if ff.object.name.present?
+          ff.input :name,  :hint =>
+  ff.template.image_tag(ff.object.name.url(:thumb) ) unless ff.object.name.blank?
+        else
+          ff.input :name, :as => :file
+        end
       end
     end
     f.actions
@@ -43,7 +48,10 @@ ActiveAdmin.register Product do
         end
       end
     end
-  end  
+  end
+
+ 
+     
 
 
 end
