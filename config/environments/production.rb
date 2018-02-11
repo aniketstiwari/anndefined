@@ -88,7 +88,7 @@ config.assets.compile = true
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            'sam.addams1992@gmail.com',
+    user_name:            'sam.addams1992',
     password:             'shivam54321',
     authentication:       :plain,
     enable_starttls_auto: true

@@ -28,7 +28,7 @@ background: url('5.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 .container{
-padding: 25px;   4
+padding: 25px;
 }
 #loader {
   position: absolute;
@@ -40,9 +40,16 @@ padding: 25px;   4
   -o-background-size: cover;
   background-size: cover;
 }
+.large-background {
+    background: url('/assets/new_desktop.jpg') no-repeat;
+}
 </style> 
      
   <script>
+
+  $(document).ready(function() {
+    $('body').addClass('large-background');
+});
 function SetImages(img)
 {
 //$("#maindiv").css("background-image","url("+ img   +")");
@@ -51,14 +58,8 @@ $( "body" ).addClass( "bodyClassOnHover" );
 }
 function RemoveImage()
 {
-
-
 $( "body" ).removeClass("bodyClassOnHover");
-
-$("body").css("background-image","url()");
-
-
-
+$("body").css("background-image","url(/assets/new_desktop.jpg)");
 }
   </script>
   <script>
@@ -75,10 +76,12 @@ function showPage() {
   $("body").css("background-color", "#f5f5f5");
  
 }
+
+
 </script>
 </head>
  <body onload="myFunction()"> 
-<div id="loader" style="background-image:url('/assets/new_desktop.jpg')"></div>
+<div id="loader" style="background-image:url('/assets/desktop.jpg')"></div>
 <div id="maindiv" class="container-fluid height-full" style="display:none;">
 <div class="row">
 <br>
@@ -87,12 +90,12 @@ function showPage() {
 <br>
 <div class="col-lg-6">
 <ul class="nav-list muted"style="list-style-type: none;">
- <li style="text-align:center; font-size: 50px; line-height: 60px;"><a href="/homes/homepage" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest.jpg')" style="text-decoration:none;color:black;">Home</li>
+ <li style="text-align:center; font-size: 50px; line-height: 60px;"><a href="/homes/homepage" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest.jpg')"  style="text-decoration:none;color:black;">Home</li>
  <li style="text-align:center;font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/concept" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest2.jpg')">Concept</a></li>
  <li style="text-align:center;color:black;font-size: 50px; line-height: 60px;" ><a href="/homes/restro" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest3.jpg')" id="I2" >Products</a></li>
  <!-- <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/receipies" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/I3.jpg')">Recipies</a></li>-->
- <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/facts" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/I4.jpg')">Facts</a></li>
- <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/historic_value" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/I5.jpg')">Historical value</a></li>
+ <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/facts" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest4.jpg')">Facts</a></li>
+ <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/historic_value" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/latest5.jpg')">Historical value</a></li>
  <!--<li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="/homes/contact_us" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/I6.jpg')">Contacts</a></li>
  <li style="text-align:center; font-color:black; font-size: 50px; line-height: 60px;"><a href="#" style="color:black;text-decoration:none;" onmouseout="RemoveImage()" onmouseover="SetImages('/assets/I6.jpg')"></a></li> -->
   
