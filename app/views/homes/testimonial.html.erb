@@ -1,142 +1,329 @@
 <style type="text/css">
-body {
-    font-family: "Open Sans", sans-serif;
+body {padding-top:20px;}
+
+.glyphicon-lg{font-size:3em}
+.blockquote-box{border-right:5px solid #E6E6E6;margin-bottom:25px}
+.blockquote-box .square{width:100px;min-height:50px;margin-right:22px;text-align:center!important;background-color:#E6E6E6;padding:20px 0}
+.blockquote-box.blockquote-primary{border-color:#357EBD}
+.blockquote-box.blockquote-primary .square{background-color:#428BCA;color:#FFF}
+.blockquote-box.blockquote-success{border-color:#4CAE4C}
+.blockquote-box.blockquote-success .square{background-color:#5CB85C;color:#FFF}
+.blockquote-box.blockquote-info{border-color:#46B8DA}
+.blockquote-box.blockquote-info .square{background-color:#5BC0DE;color:#FFF}
+.blockquote-box.blockquote-warning{border-color:#EEA236}
+.blockquote-box.blockquote-warning .square{background-color:#F0AD4E;color:#FFF}
+.blockquote-box.blockquote-danger{border-color:#D43F3A}
+.blockquote-box.blockquote-danger .square{background-color:#D9534F;color:#FFF}
+
+/*!
+ * @copyright © Kartik Visweswaran, Krajee.com, 2014
+ * @version 2.5.0
+ *
+ * A simple yet powerful JQuery star rating plugin that allows rendering
+ * fractional star ratings and supports Right to Left (RTL) input.
+ *
+ * For more JQuery/Bootstrap plugins and demos visit http://plugins.krajee.com
+ * For more Yii related demos visit http://demos.krajee.com
+ */
+.rating-loading {
+    width: 25px;
+    height: 25px;
+    font-size: 0px;
+    color: #fff;
+    background: transparent url('../img/loading.gif') top left no-repeat;
+    border: none;
 }
-h2 {
-    color: #333;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
+/*
+ * Stars
+ */
+.rating-gly {
+    font-family: 'Glyphicons Halflings';
+}
+.rating-gly-star {
+    font-family: 'Glyphicons Halflings';
+    padding-left: 2px;
+}
+
+.rating-gly-star .rating-stars:before {
+    padding-left: 2px;
+}
+
+.rating-lg .rating-gly-star, .rating-lg .rating-gly-star .rating-stars:before {
+    padding-left: 4px;
+}
+
+.rating-xl .rating-gly-star, .rating-xl .rating-gly-star .rating-stars:before {
+    padding-left: 2px;
+}
+
+.rating-active {
+    cursor: default;
+}
+
+.rating-disabled {
+    cursor: not-allowed;
+}
+
+.rating-uni {
+    font-size: 1.2em;
+    margin-top: -5px;
+}
+
+.rating-container {
     position: relative;
-    margin: 30px 0 60px;
-}
-h2::after {
-    content: "";
-    width: 100px;
-    position: absolute;
-    margin: 0 auto;
-    height: 3px;
-    background: #8fbc54;
-    left: 0;
-    right: 0;
-    bottom: -10px;
-}
-.col-center {
-    margin: 0 auto;
-    float: none !important;
-}
-.carousel {
-    margin: 50px auto;
-    padding: 0 70px;
-}
-.carousel .item {
-    color: #999;
-    font-size: 14px;
-    text-align: center;
-    overflow: hidden;
-    min-height: 290px;
-}
-.carousel .item .img-box {
-    width: 135px;
-    height: 135px;
-    margin: 0 auto;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-}
-.carousel .img-box img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 50%;
-}
-.carousel .testimonial {
-    padding: 30px 0 10px;
-}
-.carousel .overview {   
-    font-style: italic;
-}
-.carousel .overview b {
-    text-transform: uppercase;
-    color: #7AA641;
-}
-.carousel .carousel-control {
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    top: 50%;
-    background: none;
-}
-.carousel-control i {
-    font-size: 68px;
-    line-height: 42px;
-    position: absolute;
+    vertical-align: middle;
     display: inline-block;
-    color: rgba(0, 0, 0, 0.8);
-    text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+    color: #e3e3e3;
+    overflow: hidden;
 }
-.carousel .carousel-indicators {
-    bottom: -40px;
+
+.rating-container:before {
+    content: attr(data-content);
 }
-.carousel-indicators li, .carousel-indicators li.active {
-    width: 10px;
-    height: 10px;
-    margin: 1px 3px;
-    border-radius: 50%;
+
+.rating-container .rating-stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fde16d;
+    transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
 }
-.carousel-indicators li {   
-    background: #999;
-    border-color: transparent;
-    box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+
+.rating-container .rating-stars:before {
+    content: attr(data-content);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
 }
-.carousel-indicators li.active {    
-    background: #555;       
-    box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+
+.rating-container-rtl {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    color: #fde16d;
+}
+
+.rating-container-rtl:before {
+    content: attr(data-content);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.rating-container-rtl .rating-stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #e3e3e3;
+    transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
+}
+
+.rating-container-rtl .rating-stars:before {
+    content: attr(data-content);
+}
+
+/**
+ * Rating sizes
+ */
+.rating-xl {
+    font-size: 4.89em;
+}
+
+.rating-lg {
+    font-size: 3.91em;
+}
+
+.rating-md {
+    font-size: 3.13em;
+}
+
+.rating-sm {
+    font-size: 2.5em;
+}
+
+.rating-xs {
+    font-size: 2em;
+}
+
+/**
+ * Clear rating button
+ */
+.star-rating .clear-rating, .star-rating-rtl .clear-rating {
+    color: #aaa;
+    cursor: not-allowed;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 60%;
+}
+
+.clear-rating-active {
+    cursor: pointer !important;
+}
+
+.clear-rating-active:hover {
+    color: #843534;
+}
+
+.star-rating .clear-rating {
+    padding-right: 5px;
+}
+
+/**
+ * Caption
+ */
+.star-rating .caption, .star-rating-rtl .caption {
+    color: #999;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 55%;
+}
+
+.star-rating .caption {
+    padding-left: 5px;
+}
+
+.star-rating-rtl .caption {
+    padding-right: 5px;
 }
 </style>
 </head>
-<body>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-center m-auto">
-            <h2>Testimonials</h2>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>   
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner">
-                    <div class="item carousel-item active">
-                    </br></br></br>
-                        <!--<div class="img-box"><img src="/examples/images/clients/1.jpg" alt=""></div>-->
-                        <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
-                        <p class="overview"><b>Paula Wilson</b>, Media Analyst</p>
-                    </div>
-                    <div class="item carousel-item">
-                        </br></br></br>
-                        <!--<div class="img-box"><img src="/examples/images/clients/2.jpg" alt=""></div>-->
-                        <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                        <p class="overview"><b>Antonio Moreno</b>, Web Developer</p>
-                    </div>
-                    <div class="item carousel-item">
-                        </br></br></br>
-                        <!--<div class="img-box"><img src="/examples/images/clients/3.jpg" alt=""></div>-->
-                        <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
-                        <p class="overview"><b>Michael Holz</b>, Seo Analyst</p>
-                    </div>
+    <h2>Feedback</h2>
+    <table width="100%" border="0">
+      <div class="col-md-9 col-md-offset-0">
+        <tr><td width="77%">
+        <div class="">
+          <form class="form-horizontal" action="send.php" method="post">
+          <fieldset>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Full Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Please enter your feedback here..." rows="5"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="message"></label>
+                 <div class="col-md-9">
+                <button type="submit" class="btn btn-primary btn-md">Submit</button>
+                <button type="reset" class="btn btn-default btn-md">Clear</button>
+
+              </div>
+            </div>
+
+            <!-- Rating -->
+            <!-- <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your rating</label>
+              <div class="col-md-9">
+                <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+              </div>
+            </div>-->
+          </td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h2>
+            Featured Testimonials</h2>
+        <div class="col-md-6">
+            <div class="blockquote-box clearfix">
+                <div class="square pull-left">
+                    <img src="http://placehold.it/60/8e44ad/FFF&text=B" alt="" class="" />
                 </div>
-                <!-- Carousel controls -->
-                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
+            </div>
+            <div class="blockquote-box blockquote-primary clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-music glyphicon-lg"></span>
+                </div>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante. <a href="http://www.jquery2dotnet.com/search/label/jquery">jquery2dotnet</a>
+                </p>
+            </div>
+            <div class="blockquote-box blockquote-success clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-tree-conifer glyphicon-lg"></span>
+                </div>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="blockquote-box blockquote-info clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-info-sign glyphicon-lg"></span>
+                </div>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
+            </div>
+            <div class="blockquote-box blockquote-warning clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-warning-sign glyphicon-lg"></span>
+                </div>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
+            </div>
+            <div class="blockquote-box blockquote-danger clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-record glyphicon-lg"></span>
+                </div>
+                <h4>
+                    John Doe</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
             </div>
         </div>
     </div>
 </div>
+
+
