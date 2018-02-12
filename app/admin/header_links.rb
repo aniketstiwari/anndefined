@@ -1,4 +1,6 @@
 ActiveAdmin.register HeaderLink do
+		permit_params :title, :status
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -11,5 +13,5 @@ ActiveAdmin.register HeaderLink do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+ actions :index, :show, :edit, :update
 end

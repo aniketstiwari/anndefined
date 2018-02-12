@@ -50,8 +50,7 @@ ActiveAdmin.register Product do
     end
   end
 
- 
-     
+  
 
-
+  actions :index, :show, :edit, :update
 end

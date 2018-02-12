@@ -9,4 +9,5 @@
 #
 
 class SliderImage < ApplicationRecord
+	mount_uploader :name, ImageUploader
 end
