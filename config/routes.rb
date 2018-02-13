@@ -23,6 +23,7 @@ Rails.application.routes.draw do
      # get 'see_more_details'
       get 'product_popup'
       get 'testimonial'
+      post :create_testimonial
     end
   end
 

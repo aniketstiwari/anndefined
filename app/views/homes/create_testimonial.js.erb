@@ -1,0 +1,5 @@
+$(".testi").append("<%= j(render partial: 'testimonial', locals: { t: @testimonial }) %>");
+
+$(".succes_message").html("Succesfully addded message.")
+$(".succes_message").fadeOut(4000);
+$("#new_testimonial")[0].reset();
