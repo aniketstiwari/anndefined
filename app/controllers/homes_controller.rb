@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
-	def restro
+	def products
 		@products = Product.all
 	end
 

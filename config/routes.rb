@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       #get 'about_us'
       get 'faq'
       get 'terms_and_conditions'
-      get 'restro'
+      get 'products'
     #  get 'flour'
       get 'contact_us'
       get 'concept'
